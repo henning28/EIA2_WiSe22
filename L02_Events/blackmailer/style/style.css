@@ -1,20 +1,24 @@
-html, body {
+html {
     height: 100%;
-    margin: 0 8px;
+    margin: 8px;
 }
 
-body {
+.container {
+    background-color: beige;
     text-align: center;
     display: grid;
     grid-template-rows: min-content min-content auto;
+    height: 600px;
+    border: thin solid black;
 }
 
-div {
-     border: thin solid black;
-     background-color: beige;
-     position: relative;
-     top: 0px;
-     left: 0px;
+#mail {
+    border-top: thin solid black;
+    background-color: beige;
+    position: relative;
+    width: 100%;
+    top: 0px;
+    left: 0px;
 }
 
 span {
@@ -22,3 +26,60 @@ span {
     position: absolute;
     border: thin dotted black;
 }
+
+.keyboard {
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    padding: 5px 0;
+    user-select: none;
+    background-color: rgb(70, 70, 70);
+}
+
+.keyboard__keys {
+    text-align: center;
+}
+
+.keyboard__key {
+    height: 30px;
+    width: 6%;
+    max-width: 90px;
+    margin: 2px 0px;
+    border-radius: 4px;
+    border: none;
+    background: rgb(124, 124, 124);
+    color: white;
+    font-size: 1rem;
+    outline: none;
+    cursor: pointer;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    vertical-align: top;
+    padding: 0;
+    position: relative;
+}
+
+.keyboard__key--wide {
+    width: 10%;
+}
+
+.keyboard__key--extra-wide {
+    width: 36%;
+    max-width: 500px;
+}
+
+
+/* .keyboard__key--activatable::after {
+    content: "";
+    position: absolute;
+    width: 8px;
+    height: 8px;
+    background-color: green;
+    border-radius: 50px;
+}
+
+.keyboard__key--active::after {
+    background: blue;    
+} */

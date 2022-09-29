@@ -5,7 +5,7 @@ namespace L02_BlackmailerCompanion {
     function handleLoad(_event: Event): void {
         let mail: HTMLElement = <HTMLElement>document.querySelector("div#mail");
         mail.addEventListener("click", placeLetter);
-        document.addEventListener("keydown", chooseCharacter);
+        document.querySelector(".keyboard__keys").addEventListener("click", chooseCharacter);
 
     }
 
@@ -24,14 +24,16 @@ namespace L02_BlackmailerCompanion {
         letter.addEventListener("click", deleteLetter);
     }
 
-    function chooseCharacter(_event: KeyboardEvent): void {
-        chosenCharacter = _event.key;
+    function chooseCharacter(): void {
+        console.log(PointerEvent);
+        // chosenCharacter = _event.key;
     }
 
     function deleteLetter(_event: MouseEvent): void {
         let target: Node = <Node> _event.target;
         let parent: Node = <Node> target.parentNode;
         parent.removeChild(target);
+        _event.stopPropagation();
 
     }
 }
