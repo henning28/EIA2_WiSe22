@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <link rel="stylesheet" href="style/style.css" type="text/css" media="screen">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cocktail Bar</title>
+</head>
+<body>
+    <h1>Cocktail Bar</h1>
+    <p class="smallHeading">Please choose your Drink</p>
+
+    <div class="boxContainer">
+        <div id="form">
+            <h2>Choose Here</h2>
+            <fieldset>
+                <legend>Drink</legend>
+                <select name="Drink" id="select">
+                    <option value="option1">Mojito</option>
+                    <option value="option1">Long Island Iced Tea</option>
+                    <option value="option1">Screwdriver</option>
+                    <option value="option1">Sex on the Beach</option>
+                </select>
+            </fieldset>
+            <fieldset>
+                <legend>Container</legend>
+                <input type="radio" name="Container">
+		        <label>Slim</label>
+		        <input type="radio" name="Container" class="inputContainer">
+		        <label>Wide</label>
+		        <input type="radio" name="Container" class="inputContainer">
+		        <label>Paper</label>
+            </fieldset>
+            <fieldset>
+                <Legend>Extras</Legend>
+                <input type="checkbox" name="Extras">
+                <label>Ice</label>
+                <input type="checkbox" name="Extras" class="inputExtras">
+                <label>Lemon</label>
+                <input type="checkbox" name="Extras" class="inputExtras">
+                <label>Orange</label>
+                <input type="checkbox" name="Extras" class="inputExtras">
+                <label>Mint</label>
+            </fieldset>
+            <fieldset id="amountFieldset">
+                <legend>Amount</legend>
+                <p>0.1L</p>
+                <input id="amountInput" type="range" name="amount" min="0.1" max="1" step="0.1" value="0.1">
+                <p>1L</p>
+                <div class="barcontainer">
+                    <div class="bar">
+                </div>
+            </fieldset>
+        </div>
+
+        <div id="order">
+            <h2>Your Order</h2>
+            <div class="yourOrder">
+                <p class="leftalign">Mojito</p>
+                <p class="rightalign">5€</p> <br>
+                <p class="leftalign">Ice</p>
+                <p class="rightalign">1€</p> <br>
+                <p class="leftalign">Mint</p>
+                <p class="rightalign">2€</p> <br> <br>
+
+                <p class="leftalign">Total:</p>
+                <p class="rightalign">8€</p>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
