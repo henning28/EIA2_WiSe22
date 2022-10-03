@@ -1,73 +1,78 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <link rel="stylesheet" href="style/style.css" type="text/css" media="screen">
+    <script src="script/script.js"></script>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Cocktail Bar</title>
 </head>
-<body>
-    <h1>Cocktail Bar</h1>
-    <p class="smallHeading">Please choose your Drink</p>
 
-    <div class="boxContainer">
+<body>
+    <header>
+        <h1>Cocktail Bar</h1>
+        <p class="smallHeading">Please choose your Drink</p>
+    </header>
+
+    <form>
         <div id="form">
             <h2>Choose Here</h2>
             <fieldset>
                 <legend>Drink</legend>
                 <select name="Drink" id="select">
-                    <option value="option1">Mojito</option>
-                    <option value="option1">Long Island Iced Tea</option>
-                    <option value="option1">Screwdriver</option>
-                    <option value="option1">Sex on the Beach</option>
+                    <option value="Mojito" price="25">Mojito</option>
+                    <option value="Long Island Iced Tea" price="35">Long Island Iced Tea</option>
+                    <option value="Screwdriver" price="20">Screwdriver</option>
+                    <option value="Sex on the Beach" price="25">Sex on the Beach</option>
                 </select>
             </fieldset>
+
             <fieldset>
                 <legend>Container</legend>
-                <input type="radio" name="Container">
-		        <label>Slim</label>
-		        <input type="radio" name="Container" class="inputContainer">
-		        <label>Wide</label>
-		        <input type="radio" name="Container" class="inputContainer">
-		        <label>Paper</label>
+                <input type="radio" name="Container" id="slim" value="Slim" price="3.50" checked>
+                <label for="slim">Slim</label>
+                <input type="radio" name="Container" id="wide" value="Wide" price="4.00" class="inputContainer">
+                <label for="wide">Wide</label>
+                <input type="radio" name="Container" id="paper" value="Paper" price="0.20" class="inputContainer">
+                <label for="paper">Paper</label>
+                <input type="radio" name="Container" id="plastic" value="Plastic" price="0.05" class="inputContainer">
+                <label for="plastic">Plasticbag</label>
             </fieldset>
+
             <fieldset>
-                <Legend>Extras</Legend>
-                <input type="checkbox" name="Extras">
-                <label>Ice</label>
-                <input type="checkbox" name="Extras" class="inputExtras">
-                <label>Lemon</label>
-                <input type="checkbox" name="Extras" class="inputExtras">
-                <label>Orange</label>
-                <input type="checkbox" name="Extras" class="inputExtras">
-                <label>Mint</label>
+                <legend>Extras</legend>
+                <input type="checkbox" name="Extras" id="ice" value="Ice" price="0.50">
+                <label for="ice">Ice</label>
+                <input type="checkbox" name="Extras" id="lemon" value="Lemon" price="0.20" class="inputExtras">
+                <label for="lemon">Lemon</label>
+                <input type="checkbox" name="Extras" id="orange" value="Orange" price="0.15" class="inputExtras">
+                <label for="orange">Orange</label>
+                <input type="checkbox" name="Extras" id="mint" value="Mint" price="0.30" class="inputExtras">
+                <label for="mint">Mint</label>
             </fieldset>
+
             <fieldset id="amountFieldset">
                 <legend>Amount</legend>
-                <p>0.1L</p>
-                <input id="amountInput" type="range" name="amount" min="0.1" max="1" step="0.1" value="0.1">
-                <p>1L</p>
-                <div class="barcontainer">
-                    <div class="bar">
-                </div>
+                <span id="slider">
+                    <span>
+                        0.1 L
+                        <input type="range" name="Amount" id="amount" min="0.1" max="1" step="0.1" value="0.1">
+                        1.0 L
+                    </span>
+                    <progress max="1.0" value="0.1"></progress>
+                </span>
             </fieldset>
         </div>
+    </form>
 
-        <div id="order">
-            <h2>Your Order</h2>
-            <div class="yourOrder">
-                <p class="leftalign">Mojito</p>
-                <p class="rightalign">5€</p> <br>
-                <p class="leftalign">Ice</p>
-                <p class="rightalign">1€</p> <br>
-                <p class="leftalign">Mint</p>
-                <p class="rightalign">2€</p> <br> <br>
-
-                <p class="leftalign">Total:</p>
-                <p class="rightalign">8€</p>
-            </div>
+    <div id="order">
+        <h2>Your Order</h2>
+        <div class="yourOrder">
+            ...
         </div>
     </div>
 </body>
+
 </html>
