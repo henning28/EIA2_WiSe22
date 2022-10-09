@@ -1,14 +1,14 @@
 var L02_BlackmailerCompanion;
 (function (L02_BlackmailerCompanion) {
-    let chosenCharacter = "A";
+    let chosenCharacter = "a";
     window.addEventListener("load", handleLoad);
     function handleLoad(_event) {
         let mail = document.querySelector("div#mail");
         mail.addEventListener("click", placeLetter);
         document.querySelector(".keyboard__keys").addEventListener("click", chooseCharacter);
+        addClass();
     }
     function placeLetter(_event) {
-        // console.log(_event);
         let x = _event.offsetX;
         let y = _event.offsetY;
         let mail = _event.target;
@@ -20,14 +20,30 @@ var L02_BlackmailerCompanion;
         letter.addEventListener("click", deleteLetter);
     }
     function chooseCharacter(_event) {
-        let newchosenCharacter = _event.target;
-        console.log(newchosenCharacter.innerHTML);
-        // chosenCharacter = _event.key;
+        document.querySelector(".keyboard__keys").addEventListener("click", addClass);
+        let clickedCharacter = _event.target;
+        if (clickedCharacter.innerHTML.length == 1) {
+            chosenCharacter = clickedCharacter.innerHTML;
+        }
     }
     function deleteLetter(_event) {
         let target = _event.target;
         let parent = target.parentNode;
         parent.removeChild(target);
+    }
+    function addClass() {
+        let buttonCollection = document.querySelector(".keyboard__keys").querySelectorAll("button");
+        buttonCollection.forEach(button => {
+            button.addEventListener("click", () => {
+                resetButtons();
+                button.classList.add("active");
+            });
+        });
+        function resetButtons() {
+            buttonCollection.forEach(button => {
+                button.classList.remove("active");
+            });
+        }
     }
 })(L02_BlackmailerCompanion || (L02_BlackmailerCompanion = {}));
 //# sourceMappingURL=script.js.map
