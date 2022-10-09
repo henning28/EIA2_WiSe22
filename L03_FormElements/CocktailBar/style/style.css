@@ -1,6 +1,16 @@
 * {
     font-family: Arial, Helvetica, sans-serif;
-    margin: 0;
+}
+
+body {
+	display: grid;
+	grid-template-columns: 70% auto;
+	grid-template-rows: auto auto
+}
+
+header {
+	grid-column: span 2;
+	text-align: center;
 }
 
 h1 {
@@ -8,45 +18,27 @@ h1 {
     margin: 30px 0px;
 }
 
+p {
+    margin: 0px 0px 25px 0px;
+}
+
+div {
+	border: thin solid black;
+	margin: 1em;
+}
+
 h2 {
-    text-align: center;
+	text-align: center;
     background-color: rgb(255, 255, 255);
     margin: 0px 0px 10px 0px;
 }
 
-.smallHeading {
-    text-align: center;
-    margin: 0px 0px 20px 0px;
-}
-
-.boxContainer {
-    display: flex;
-}
-
 #form {
     margin: 0px 5px;
-    width: 60%;
     height: 400px;
     background-color: rgb(255, 255, 255);
     padding: 20px;
     border: solid 2px black;
-}
-
-.inputContainer {
-    margin: 0px 0px 0px 10px;
-}
-
-.inputExtras {
-    margin: 0px 0px 0px 15px;
-}
-
-#slider {
-    display: flex;
-    align-items: center;
-}
-
-#amountInput {
-    margin: 0px 10px;
 }
 
 progress {
@@ -55,17 +47,23 @@ progress {
     transform: rotate(-90deg);
 }
 
-#order {
+#slider {
+    display: flex;
+    align-items: center;
+}
+
+#orderBox {
     border: solid 2px black;
     margin: 0px 5px;
-    width: 40%;
     height: 400px;
     background-color: rgb(255, 255, 255);
     padding: 20px;
 }
 
-.yourOrder {
-    margin: 20px auto 0px auto;
-    height: 300px;
-    width: 80%;
+.inputExtras {
+    margin: 0px 0px 0px 15px;
+}
+
+.inputContainer {
+    margin: 0px 0px 0px 10px;
 }

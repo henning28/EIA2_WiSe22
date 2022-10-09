@@ -6,14 +6,14 @@ namespace L02_BlackmailerCompanion {
         let mail: HTMLElement = <HTMLElement>document.querySelector("div#mail");
         mail.addEventListener("click", placeLetter);
         document.querySelector(".keyboard__keys").addEventListener("click", chooseCharacter);
-
     }
 
     function placeLetter(_event: MouseEvent): void {
+        // console.log(_event);
         let x: number = _event.offsetX;
         let y: number = _event.offsetY;
 
-        let mail: HTMLElement = <HTMLElement> _event.target;
+        let mail: HTMLElement = <HTMLElement>_event.target;
         let letter: HTMLSpanElement = document.createElement("span");
         mail.appendChild(letter);
 
@@ -24,16 +24,15 @@ namespace L02_BlackmailerCompanion {
         letter.addEventListener("click", deleteLetter);
     }
 
-    function chooseCharacter(): void {
-        console.log(PointerEvent);
+    function chooseCharacter(_event: KeyboardEvent): void {
+        let newchosenCharacter: HTMLElement = <HTMLElement>_event.target;
+        console.log(newchosenCharacter.innerHTML);
         // chosenCharacter = _event.key;
     }
 
     function deleteLetter(_event: MouseEvent): void {
-        let target: Node = <Node> _event.target;
-        let parent: Node = <Node> target.parentNode;
+        let target: Node = <Node>_event.target;
+        let parent: Node = <Node>target.parentNode;
         parent.removeChild(target);
-        _event.stopPropagation();
-
     }
 }

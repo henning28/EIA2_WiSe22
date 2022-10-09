@@ -8,6 +8,7 @@ var L02_BlackmailerCompanion;
         document.querySelector(".keyboard__keys").addEventListener("click", chooseCharacter);
     }
     function placeLetter(_event) {
+        // console.log(_event);
         let x = _event.offsetX;
         let y = _event.offsetY;
         let mail = _event.target;
@@ -18,15 +19,15 @@ var L02_BlackmailerCompanion;
         letter.style.top = y + "px";
         letter.addEventListener("click", deleteLetter);
     }
-    function chooseCharacter() {
-        console.log(PointerEvent);
+    function chooseCharacter(_event) {
+        let newchosenCharacter = _event.target;
+        console.log(newchosenCharacter.innerHTML);
         // chosenCharacter = _event.key;
     }
     function deleteLetter(_event) {
         let target = _event.target;
         let parent = target.parentNode;
         parent.removeChild(target);
-        _event.stopPropagation();
     }
 })(L02_BlackmailerCompanion || (L02_BlackmailerCompanion = {}));
 //# sourceMappingURL=script.js.map

@@ -13,7 +13,7 @@
 <body>
     <header>
         <h1>Cocktail Bar</h1>
-        <p class="smallHeading">Please choose your Drink</p>
+        <p>Please choose your Drink</p>
     </header>
 
     <form>
@@ -22,10 +22,10 @@
             <fieldset>
                 <legend>Drink</legend>
                 <select name="Drink" id="select">
-                    <option value="Mojito" price="25">Mojito</option>
-                    <option value="Long Island Iced Tea" price="35">Long Island Iced Tea</option>
-                    <option value="Screwdriver" price="20">Screwdriver</option>
-                    <option value="Sex on the Beach" price="25">Sex on the Beach</option>
+                    <option value="Mojito" name="Drink" price="25">Mojito</option>
+                    <option value="Long Island Iced Tea" name="Drink" price="35">Long Island Iced Tea</option>
+                    <option value="Screwdriver" name="Drink" price="20">Screwdriver</option>
+                    <option value="Sex on the Beach" name="Drink" price="25">Sex on the Beach</option>
                 </select>
             </fieldset>
 
@@ -67,9 +67,9 @@
         </div>
     </form>
 
-    <div id="order">
+    <div id="orderBox">
         <h2>Your Order</h2>
-        <div class="yourOrder">
+        <div  id="order">
             ...
         </div>
     </div>
