@@ -4,11 +4,22 @@ var L02_BlackmailerCompanion;
     window.addEventListener("load", handleLoad);
     function handleLoad(_event) {
         let mail = document.querySelector("div#mail");
-        mail.addEventListener("click", placeLetter);
+        mail.addEventListener("click", decideAction);
         document.querySelector(".keyboard__keys").addEventListener("click", chooseCharacter);
         addClass();
     }
+    function decideAction(_event) {
+        let eventTargetName = _event.target;
+        // console.log(eventTargetName.innerHTML);
+        if (eventTargetName.innerHTML == " ") {
+            placeLetter(_event);
+        }
+        else {
+            console.log("doesnt work");
+        }
+    }
     function placeLetter(_event) {
+        // console.log(_event);
         let x = _event.offsetX;
         let y = _event.offsetY;
         let mail = _event.target;
@@ -20,7 +31,7 @@ var L02_BlackmailerCompanion;
         letter.addEventListener("click", deleteLetter);
     }
     function chooseCharacter(_event) {
-        document.querySelector(".keyboard__keys").addEventListener("click", addClass);
+        // chosenCharacter = _event.key;
         let clickedCharacter = _event.target;
         if (clickedCharacter.innerHTML.length == 1) {
             chosenCharacter = clickedCharacter.innerHTML;
