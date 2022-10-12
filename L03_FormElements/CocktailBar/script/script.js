@@ -11,14 +11,15 @@ var L03_CocktailBar;
         let order = document.querySelector("div#order");
         order.innerHTML = "";
         let formData = new FormData(document.forms[0]);
-        for (let entry of formData.entries()) {
-            let item = document.querySelector("[value='" + entry[1] + "']");
-            let drink = document.querySelector("[value='" + entry[0] + "']");
-            console.log(item);
-            console.log(drink);
-            let price = Number(item.getAttribute("price"));
-            order.innerHTML += item.name + "  € " + price;
-        }
+        let drink = document.getElementById("select").value;
+        let drinkPrice = document.getElementById(drink).getAttribute("price");
+        order.innerHTML += drink + "  € " + drinkPrice + "<br>" + "<br>";
+        // for (let entry of formData.entries()) {
+        //     let item: HTMLInputElement = document.querySelector("[value='" + entry[1] + "']");
+        //     let price: number = Number(item.getAttribute("price"));
+        //     // console.log(item);
+        //     order.innerHTML += item.name + "  € " + price + "<br>" + "<br>";
+        // }
     }
     function displayAmount(_event) {
         let progress = document.querySelector("progress");

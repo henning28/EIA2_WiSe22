@@ -16,18 +16,20 @@ namespace L03_CocktailBar {
         order.innerHTML = "";
 
         let formData: FormData = new FormData(document.forms[0]);
+        let drink: string = (<HTMLSelectElement>document.getElementById("select")).value;
+        let drinkPrice: string = document.getElementById(drink).getAttribute("price");
 
-        for (let entry of formData.entries()) {
-            let item: HTMLInputElement = document.querySelector("[value='" + entry[1] + "']");
-            let drink: HTMLOptionElement = document.querySelector("[value='" + entry[0] + "']");
-            console.log(item);
-            console.log(drink);
-            let price: number = Number(item.getAttribute("price"));
+        order.innerHTML += drink + "  € " + drinkPrice + "<br>" + "<br>";
+
+        // for (let entry of formData.entries()) {
+        //     let item: HTMLInputElement = document.querySelector("[value='" + entry[1] + "']");
+        //     let price: number = Number(item.getAttribute("price"));
+
+        //     // console.log(item);
             
+        //     order.innerHTML += item.name + "  € " + price + "<br>" + "<br>";
 
-            order.innerHTML += item.name + "  € " + price;
-        }
-
+        // }
     }
 
 

@@ -4,7 +4,7 @@ namespace L02_BlackmailerCompanion {
 
     function handleLoad(_event: Event): void {
         let mail: HTMLElement = <HTMLElement>document.querySelector("div#mail");
-        mail.addEventListener("click", decideAction);
+        mail.addEventListener("click", placeLetter);
 
         document.querySelector(".keyboard__keys").addEventListener("click", chooseCharacter);
         
@@ -12,13 +12,12 @@ namespace L02_BlackmailerCompanion {
     }
 
     function decideAction(_event: PointerEvent): void {
-        let eventTargetName: HTMLElement = <HTMLElement>_event.target;
         // console.log(eventTargetName.innerHTML);
-        if (eventTargetName.innerHTML == " ") {
-            placeLetter(_event);
-        } else {
-            console.log("doesnt work");
-        }
+        // if (eventTargetName.innerHTML == " ") {
+        //     placeLetter(_event);
+        // } else {
+        //     console.log("doesnt work");
+        // }
     }
 
     function placeLetter(_event: PointerEvent): void {
