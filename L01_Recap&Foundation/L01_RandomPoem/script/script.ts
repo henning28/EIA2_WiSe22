@@ -1,3 +1,11 @@
+/*
+Aufgabe: L01_RandomPoem
+Name: Henning Reck
+Matrikel: 271133
+Datum: 14.10.2022
+Quellen:
+*/
+
 namespace L01_RandomPoem {
     let characters: string[] = ["Po", "Shifu", "Oogway", "Tigress", "Crane", "Mantis"];
 
