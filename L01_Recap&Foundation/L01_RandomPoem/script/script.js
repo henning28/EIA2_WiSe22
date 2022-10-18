@@ -1,3 +1,10 @@
+/*
+Aufgabe: L01_RandomPoem
+Name: Henning Reck
+Matrikel: 271133
+Datum: 14.10.2022
+Quellen:
+*/
 var L01_RandomPoem;
 (function (L01_RandomPoem) {
     let characters = ["Po", "Shifu", "Oogway", "Tigress", "Crane", "Mantis"];

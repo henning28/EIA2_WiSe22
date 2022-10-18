@@ -8,18 +8,24 @@ var L03_CocktailBar;
         slider.addEventListener("input", displayAmount);
     }
     function handleChange(_event) {
+        let progress = document.querySelector("progress");
+        let amountPrice = progress.value * 10;
         let order = document.querySelector("div#order");
         order.innerHTML = "";
         let formData = new FormData(document.forms[0]);
         let drink = document.getElementById("select").value;
         let drinkPrice = document.getElementById(drink).getAttribute("price");
         order.innerHTML += drink + "  € " + drinkPrice + "<br>" + "<br>";
-        // for (let entry of formData.entries()) {
-        //     let item: HTMLInputElement = document.querySelector("[value='" + entry[1] + "']");
-        //     let price: number = Number(item.getAttribute("price"));
-        //     // console.log(item);
-        //     order.innerHTML += item.name + "  € " + price + "<br>" + "<br>";
-        // }
+        let totalPrice = 0;
+        for (let entry of formData.entries()) {
+            let item = document.querySelector("[value='" + entry[1] + "']");
+            let price = Number(item.getAttribute("price"));
+            order.innerHTML += item.name + "  € " + price + "<br>" + "<br>";
+            totalPrice = totalPrice + price;
+        }
+        order.innerHTML += "Amount " + amountPrice + " €" + "<br>" + "<br>";
+        let cleanTotal = totalPrice.toFixed(2);
+        order.innerHTML += "Your Total is " + cleanTotal + " €" + "<br>" + "<br>";
     }
     function displayAmount(_event) {
         let progress = document.querySelector("progress");

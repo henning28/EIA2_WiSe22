@@ -12,6 +12,10 @@ namespace L03_CocktailBar {
 
     function handleChange(_event: Event): void {
 
+        let progress: HTMLProgressElement = <HTMLProgressElement>document.querySelector("progress");
+        let amountPrice: number = progress.value * 10;
+
+
         let order: HTMLDivElement = <HTMLDivElement>document.querySelector("div#order");
         order.innerHTML = "";
 
@@ -21,21 +25,28 @@ namespace L03_CocktailBar {
 
         order.innerHTML += drink + "  € " + drinkPrice + "<br>" + "<br>";
 
-        // for (let entry of formData.entries()) {
-        //     let item: HTMLInputElement = document.querySelector("[value='" + entry[1] + "']");
-        //     let price: number = Number(item.getAttribute("price"));
+        let totalPrice: number = 0;
 
-        //     // console.log(item);
-            
-        //     order.innerHTML += item.name + "  € " + price + "<br>" + "<br>";
+        for (let entry of formData.entries()) {
+            let item: HTMLInputElement = document.querySelector("[value='" + entry[1] + "']");
+            let price: number = Number(item.getAttribute("price"));
 
-        // }
+            order.innerHTML += item.name + "  € " + price + "<br>" + "<br>";
+
+            totalPrice = totalPrice + price;
+        }
+
+        order.innerHTML += "Amount " + amountPrice + " €" + "<br>" + "<br>";
+
+        let cleanTotal: string = totalPrice.toFixed(2);
+        order.innerHTML += "Your Total is " + cleanTotal + " €" + "<br>" + "<br>";
+
     }
-
 
     function displayAmount(_event: Event): void {
         let progress: HTMLProgressElement = <HTMLProgressElement>document.querySelector("progress");
         let amount: string = (<HTMLInputElement>_event.target).value;
         progress.value = parseFloat(amount);
+
     }
 }
