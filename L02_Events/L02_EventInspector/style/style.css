@@ -1,4 +1,4 @@
-.div_container {
+.divContainer {
     margin: 0 auto;
     display: flex;
 }
@@ -11,7 +11,7 @@
     background-color: rgb(49, 207, 255);
 }
 
-#span {
+span {
     top: 0px;
     left: 0px;
     z-index: 1;

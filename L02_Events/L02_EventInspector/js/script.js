@@ -16,10 +16,10 @@ var L02_EventInspector;
         document.querySelector("body").addEventListener("keyup", logInfo);
         document.querySelector("div").addEventListener("click", logInfo);
         document.querySelector("div").addEventListener("keyup", logInfo);
-        document.getElementById("button").addEventListener("click", buttonClick);
+        document.querySelector("button").addEventListener("click", buttonClick);
     }
     function setInfoBox(_event) {
-        let infoBox = document.getElementById("span");
+        let infoBox = document.querySelector("span");
         let xValue = document.getElementById("xValue");
         let yValue = document.getElementById("yValue");
         let eventTargetValue = document.getElementById("eventTarget");
@@ -40,7 +40,10 @@ var L02_EventInspector;
         console.log(_event);
     }
     function buttonClick(_event) {
-        console.log("button clicked");
+        let eventPath = _event.composedPath();
+        if (eventPath[5] == document) {
+            console.log(_event);
+        }
     }
 })(L02_EventInspector || (L02_EventInspector = {}));
 //# sourceMappingURL=script.js.map

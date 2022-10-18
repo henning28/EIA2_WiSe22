@@ -21,11 +21,11 @@ namespace L02_EventInspector {
         document.querySelector("div").addEventListener("click", logInfo);
         document.querySelector("div").addEventListener("keyup", logInfo);
 
-        document.getElementById("button").addEventListener("click", buttonClick);
+        document.querySelector("button").addEventListener("click", buttonClick);
     }
 
     function setInfoBox(_event: MouseEvent): void {
-        let infoBox: HTMLElement = document.getElementById("span");
+        let infoBox: HTMLElement = document.querySelector("span");
         let xValue: HTMLElement = document.getElementById("xValue");
         let yValue: HTMLElement = document.getElementById("yValue");
         let eventTargetValue: HTMLElement = document.getElementById("eventTarget");
@@ -51,7 +51,10 @@ namespace L02_EventInspector {
         console.log(_event);
     }
 
-    function buttonClick(_event: Event): void {
-        console.log("button clicked");
+    function buttonClick(_event: CustomEvent): void {
+        let eventPath: EventTarget[] = _event.composedPath();
+        if (eventPath[5] == document) {
+            console.log(_event);
+        }
     }
 }
