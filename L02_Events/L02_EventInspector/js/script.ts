@@ -1,3 +1,11 @@
+/*
+Aufgabe: L02_EventInspector
+Name: Henning Reck
+Matrikel: 271133
+Datum: 19.10.2022
+Quellen:
+*/
+
 namespace L02_EventInspector {
     window.addEventListener("load", handleLoad);
 
@@ -13,15 +21,23 @@ namespace L02_EventInspector {
         document.querySelector("div").addEventListener("click", logInfo);
         document.querySelector("div").addEventListener("keyup", logInfo);
 
+        document.getElementById("button").addEventListener("click", buttonClick);
     }
 
     function setInfoBox(_event: MouseEvent): void {
+        let infoBox: HTMLElement = document.getElementById("span");
         let xValue: HTMLElement = document.getElementById("xValue");
         let yValue: HTMLElement = document.getElementById("yValue");
         let eventTargetValue: HTMLElement = document.getElementById("eventTarget");
 
-        document.querySelector("span").style.top = (_event.clientY + 5) + "px";
-        document.getElementById("span").style.left = (_event.clientX + 5) + "px";
+        xValue.classList.add("values");
+        yValue.classList.add("values");
+        eventTargetValue.classList.add("values");
+    
+        infoBox.style.border = "solid 2px black";
+
+        infoBox.style.top = (_event.clientY + 5) + "px";
+        infoBox.style.left = (_event.clientX + 5) + "px";
 
         xValue.innerHTML = "Mouseposition X = " + _event.clientX.toString();
         yValue.innerHTML = "Mouseposition Y = " + _event.clientY.toString();
@@ -33,5 +49,9 @@ namespace L02_EventInspector {
         console.log(_event.target);
         console.log(_event.currentTarget);
         console.log(_event);
+    }
+
+    function buttonClick(_event: Event): void {
+        console.log("button clicked");
     }
 }

@@ -13,14 +13,24 @@
 
 #span {
     top: 0px;
-    left: 500px;
+    left: 0px;
+    z-index: 1;
     position: fixed;
     pointer-events: none;
-    border: solid 2px black;
     background-color: bisque;
 }
 
 .values {
     margin: 0 auto;
     padding: 3px;
+}
+
+button {
+    top: 25px;
+    left: 25px;
+    position: relative;
+    height: 50px;
+    width: 50px;
+    border-radius: 15px;
+    cursor: pointer;
 }
