@@ -13,8 +13,7 @@ namespace L03_CocktailBar {
     function handleChange(_event: Event): void {
 
         let progress: HTMLProgressElement = <HTMLProgressElement>document.querySelector("progress");
-        let amountPrice: number = progress.value * 10;
-
+        let cocktailAmount: number = progress.value;
 
         let order: HTMLDivElement = <HTMLDivElement>document.querySelector("div#order");
         order.innerHTML = "";
@@ -25,7 +24,7 @@ namespace L03_CocktailBar {
 
         order.innerHTML += drink + "  € " + drinkPrice + "<br>" + "<br>";
 
-        let totalPrice: number = 0;
+        let newPrice: number = 0;
 
         for (let entry of formData.entries()) {
             let item: HTMLInputElement = document.querySelector("[value='" + entry[1] + "']");
@@ -33,13 +32,11 @@ namespace L03_CocktailBar {
 
             order.innerHTML += item.name + "  € " + price + "<br>" + "<br>";
 
-            totalPrice = totalPrice + price;
+            newPrice = newPrice + price;
         }
 
-        order.innerHTML += "Amount " + amountPrice + " €" + "<br>" + "<br>";
-
-        let cleanTotal: string = totalPrice.toFixed(2);
-        order.innerHTML += "Your Total is " + cleanTotal + " €" + "<br>" + "<br>";
+        let totalAmount: number = newPrice * cocktailAmount;
+        order.innerHTML += "Your Total is " + totalAmount.toFixed(2) + " €" + "<br>" + "<br>";
 
     }
 

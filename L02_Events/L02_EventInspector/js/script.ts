@@ -3,7 +3,7 @@ Aufgabe: L02_EventInspector
 Name: Henning Reck
 Matrikel: 271133
 Datum: 19.10.2022
-Quellen:
+Quellen: Daniel Meier
 */
 
 namespace L02_EventInspector {
@@ -18,10 +18,14 @@ namespace L02_EventInspector {
         document.querySelector("body").addEventListener("click", logInfo);
         document.querySelector("body").addEventListener("keyup", logInfo);
 
-        document.querySelector("div").addEventListener("click", logInfo);
-        document.querySelector("div").addEventListener("keyup", logInfo);
+        document.querySelector("#div0").addEventListener("click", logInfo);
+        document.querySelector("#div0").addEventListener("keyup", logInfo);
+
+        document.querySelector("#div1").addEventListener("click", logInfo);
+        document.querySelector("#div1").addEventListener("keyup", logInfo);
 
         document.querySelector("button").addEventListener("click", buttonClick);
+
     }
 
     function setInfoBox(_event: MouseEvent): void {
@@ -29,13 +33,7 @@ namespace L02_EventInspector {
         let xValue: HTMLElement = document.getElementById("xValue");
         let yValue: HTMLElement = document.getElementById("yValue");
         let eventTargetValue: HTMLElement = document.getElementById("eventTarget");
-
-        xValue.classList.add("values");
-        yValue.classList.add("values");
-        eventTargetValue.classList.add("values");
     
-        infoBox.style.border = "solid 2px black";
-
         infoBox.style.top = (_event.clientY + 5) + "px";
         infoBox.style.left = (_event.clientX + 5) + "px";
 
@@ -51,10 +49,9 @@ namespace L02_EventInspector {
         console.log(_event);
     }
 
-    function buttonClick(_event: CustomEvent): void {
-        let eventPath: EventTarget[] = _event.composedPath();
-        if (eventPath[5] == document) {
-            console.log(_event);
-        }
+    function buttonClick(_event: Event): void {
+        let button: HTMLButtonElement = document.querySelector("button");
+        let event: CustomEvent = new CustomEvent("Button clicked!", {bubbles: true});
+        button.dispatchEvent(event);
     }
 }

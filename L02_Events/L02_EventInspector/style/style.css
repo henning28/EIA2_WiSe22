@@ -18,6 +18,7 @@ span {
     position: fixed;
     pointer-events: none;
     background-color: bisque;
+    border: solid 2px black;
 }
 
 .values {
