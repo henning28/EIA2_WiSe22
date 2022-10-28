@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style/style.css" type="text/css" media="screen" />
+    <script src="https://kit.fontawesome.com/8716d37031.js" crossorigin="anonymous"></script>
+    <script src="script/script.js" defer></script>
+    <title>Einkaufsliste Formular</title>
+</head>
+
+<body>
+    <div class="headingContainer">
+        <h1>Einkaufsliste</h1>
+    </div>
+
+    <div class="fieldsetContainer">
+        <fieldset id="fieldset">
+            <legend id="fieldsetLegend">New Item</legend>
+            <p class="fieldsetLabels">Name</p>
+            <input type="text" name="Text" placeholder="type here" class="fieldsetElements" required />
+            <hr />
+            <p class="fieldsetLabels">Amount</p>
+            <input type="number" name="Amount" placeholder="type a number here" class="fieldsetElements" required />
+            <hr />
+            <p class="fieldsetLabels">Comment</p>
+            <textarea name="Comment" rows="1" placeholder="type here" class="fieldsetElements"></textarea>
+            <hr />
+            <p class="fieldsetLabels">Date</p>
+            <input type="date" name="Date" class="fieldsetElements" />
+            <hr />
+            <div id="AddItem">Add Item</div>
+        </fieldset>
+    </div>
+
+    <li id="Einkaufsliste">
+        <div class="item">
+            <input class="checkbox" type="checkbox">
+
+            <p class="itemname">Carbonara</p>
+
+            <p class="itemamount">1x</p>
+
+            <p class="itemcomment">Bitte die Günstigere!</p>
+
+            <p class="itemdate">18.08.22</p>
+
+            <div class="trashcan">
+                <i class="fa-regular fa-trash-can fa-xl trash"></i>
+            </div>
+            <div class="editbutton">
+                <i class="fa-solid fa-pen-to-square fa-xl edit"></i>
+            </div>
+        </div>
+    </li>
+</body>
+
+</html>
