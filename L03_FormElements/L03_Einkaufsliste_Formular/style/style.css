@@ -72,6 +72,7 @@ li {
     width: 50%;
     min-width: 500px;
     display: flex;
+    flex-flow: column wrap;
 }
 
 .item {
