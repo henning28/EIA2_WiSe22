@@ -122,7 +122,6 @@ li {
 .trashcan {
     height: 50px;
     width: 50px;
-    margin-left: auto;
     display: flex;
 }
 
@@ -133,8 +132,8 @@ li {
 .editbutton {
     height: 50px;
     width: 50px;
+    margin-left: auto;
     display: flex;
-
 }
 
 .edit {
