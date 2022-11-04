@@ -1,5 +1,5 @@
 /*
-Aufgabe: L02_EventInspector
+Aufgabe: L03_Einkaufsliste_Formular
 Name: Henning Reck
 Matrikel: 271133
 Datum: 28.10.2022

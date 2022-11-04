@@ -7,7 +7,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="style/style.css" type="text/css" media="screen" />
     <script src="https://kit.fontawesome.com/8716d37031.js" crossorigin="anonymous"></script>
-    <script src="script/script.js" defer></script>
+    <script src="script/script.js"></script>
+    <script src="script/data.js"></script>
     <title>Einkaufsliste Datenstruktur</title>
 </head>
 
@@ -20,13 +21,13 @@
         <fieldset id="fieldset">
             <legend id="fieldsetLegend">New Item</legend>
             <p class="fieldsetLabels">Name</p>
-            <input type="text" name="Text" placeholder="type here" class="fieldsetElements" required />
+            <input id="itemName" type="text" name="Text" placeholder="type here" class="fieldsetElements" required />
             <hr />
             <p class="fieldsetLabels">Amount</p>
-            <input type="number" name="Amount" placeholder="type a number here" class="fieldsetElements" required />
+            <input id="itemAmount" type="number" name="Amount" placeholder="type a number here" class="fieldsetElements" required />
             <hr />
             <p class="fieldsetLabels">Comment</p>
-            <textarea name="Comment" rows="1" placeholder="type here" class="fieldsetElements"></textarea>
+            <textarea id="itemComment" name="Comment" rows="1" placeholder="type here" class="fieldsetElements"></textarea>
             <hr />
             <p class="fieldsetLabels">Date</p>
             <input type="date" name="Date" class="fieldsetElements" />
@@ -35,8 +36,8 @@
         </fieldset>
     </div>
 
-    <li id="Einkaufsliste">
-        <!-- <div class="item">
+    <ul id="Einkaufsliste">
+        <!-- <li class="item">
             <input class="checkbox" type="checkbox">
 
             <div class="itemDetails">
@@ -52,8 +53,8 @@
             <div class="trashcan">
                 <i class="fa-regular fa-trash-can fa-xl trash"></i>
             </div>
-        </div> -->
-    </li>
+        </li> -->
+    </ul>
 </body>
 
 </html>
