@@ -2,7 +2,7 @@
 Aufgabe: L04_Einkaufsliste_Datenstruktur
 Name: Henning Reck
 Matrikel: 271133
-Datum: 04.11.2022
+Datum: 05.11.2022
 Quellen: 
 */
 
@@ -160,7 +160,7 @@ namespace L04_Einkaufsliste_Datenstruktur {
 
         createTrashcanDiv.appendChild(createtrash);
 
-        createTrashcanDiv.addEventListener("click", deleteTask);
+        createTrashcanDiv.addEventListener("click", deleteItem);
 
         // appendChildren
 
@@ -177,7 +177,7 @@ namespace L04_Einkaufsliste_Datenstruktur {
 
         itemIndex ++;
 
-        function deleteTask(): void {
+        function deleteItem(): void {
             createItem.parentElement.removeChild(createItem);
         }
 
