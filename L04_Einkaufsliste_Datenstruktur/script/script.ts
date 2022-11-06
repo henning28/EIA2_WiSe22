@@ -2,8 +2,8 @@
 Aufgabe: L04_Einkaufsliste_Datenstruktur
 Name: Henning Reck
 Matrikel: 271133
-Datum: 05.11.2022
-Quellen: 
+Datum: 06.11.2022
+Quellen: Yannik König
 */
 
 namespace L04_Einkaufsliste_Datenstruktur {
@@ -29,6 +29,7 @@ namespace L04_Einkaufsliste_Datenstruktur {
             var createItem: HTMLDivElement = document.createElement("div");
             list.appendChild(createItem);
             createItem.classList.add("item_Nr" + dataIndex, "item");
+            createItem.setAttribute("id", String("item_Nr" + dataIndex));
 
             // create Input Checkbox
 
@@ -78,10 +79,14 @@ namespace L04_Einkaufsliste_Datenstruktur {
             let createTrashcanDiv: HTMLDivElement = document.createElement("div");
             createTrashcanDiv.classList.add("trashcan_Nr" + dataIndex, "trashcan");
 
-            let createtrash: HTMLElement = document.createElement("i");
-            createtrash.classList.add("fa-regular", "fa-trash-can", "fa-xl", "trash");
+            let createTrash: HTMLElement = document.createElement("i");
+            createTrash.classList.add("fa-regular", "fa-trash-can", "fa-xl", "trash");
+            createTrash.setAttribute("id", String("trashcan" + dataIndex));
 
-            createTrashcanDiv.appendChild(createtrash);
+            createTrashcanDiv.appendChild(createTrash);
+
+            createTrash.addEventListener("click", deleteItem);
+
 
             // appendChildren
 
@@ -90,7 +95,7 @@ namespace L04_Einkaufsliste_Datenstruktur {
             createItem.appendChild(createEditButtonDiv);
             createItem.appendChild(createTrashcanDiv);
 
-            // itemIndex = inputs.length;
+            itemIndex = inputs.length;
         }
     }
 
@@ -107,6 +112,7 @@ namespace L04_Einkaufsliste_Datenstruktur {
         let createItem: HTMLDivElement = document.createElement("div");
         list.appendChild(createItem);
         createItem.classList.add("item_Nr" + itemIndex, "item");
+        createItem.setAttribute("id", String("item_Nr" + itemIndex));
 
         // create Input Checkbox
 
@@ -155,12 +161,13 @@ namespace L04_Einkaufsliste_Datenstruktur {
         let createTrashcanDiv: HTMLDivElement = document.createElement("div");
         createTrashcanDiv.classList.add("trashcan_Nr" + itemIndex, "trashcan");
 
-        let createtrash: HTMLElement = document.createElement("i");
-        createtrash.classList.add("fa-regular", "fa-trash-can", "fa-xl", "trash");
+        let createTrash: HTMLElement = document.createElement("i");
+        createTrash.classList.add("fa-regular", "fa-trash-can", "fa-xl", "trash");
+        createTrash.setAttribute("id", String("trashcan" + itemIndex));
 
-        createTrashcanDiv.appendChild(createtrash);
+        createTrashcanDiv.appendChild(createTrash);
 
-        createTrashcanDiv.addEventListener("click", deleteItem);
+        createTrash.addEventListener("click", deleteItem);
 
         // appendChildren
 
@@ -176,10 +183,16 @@ namespace L04_Einkaufsliste_Datenstruktur {
         inputItemComment.value = "";
 
         itemIndex ++;
+    }
 
-        function deleteItem(): void {
-            createItem.parentElement.removeChild(createItem);
-        }
+    function deleteItem(_event: Event): void {
+        let trigger: string = (_event.target as HTMLElement).id;
+        let triggerNum: string = trigger.replace(/\D/g, "");
+        let identifyer: number = parseInt(triggerNum);
 
+        let list: HTMLElement = <HTMLElement>document.querySelector("#Einkaufsliste");
+        let remIt: HTMLElement = document.getElementById("item_Nr" + identifyer);
+
+        list.removeChild(remIt);     
     }
 }

@@ -2,8 +2,8 @@
 Aufgabe: L04_Einkaufsliste_Datenstruktur
 Name: Henning Reck
 Matrikel: 271133
-Datum: 04.11.2022
-Quellen:
+Datum: 06.11.2022
+Quellen: Yannik König
 */
 var L04_Einkaufsliste_Datenstruktur;
 (function (L04_Einkaufsliste_Datenstruktur) {
@@ -20,6 +20,7 @@ var L04_Einkaufsliste_Datenstruktur;
             var createItem = document.createElement("div");
             list.appendChild(createItem);
             createItem.classList.add("item_Nr" + dataIndex, "item");
+            createItem.setAttribute("id", String("item_Nr" + dataIndex));
             // create Input Checkbox
             let createcheck = document.createElement("input");
             createcheck.classList.add("checkbox");
@@ -53,15 +54,17 @@ var L04_Einkaufsliste_Datenstruktur;
             // create Trash
             let createTrashcanDiv = document.createElement("div");
             createTrashcanDiv.classList.add("trashcan_Nr" + dataIndex, "trashcan");
-            let createtrash = document.createElement("i");
-            createtrash.classList.add("fa-regular", "fa-trash-can", "fa-xl", "trash");
-            createTrashcanDiv.appendChild(createtrash);
+            let createTrash = document.createElement("i");
+            createTrash.classList.add("fa-regular", "fa-trash-can", "fa-xl", "trash");
+            createTrash.setAttribute("id", String("trashcan" + dataIndex));
+            createTrashcanDiv.appendChild(createTrash);
+            createTrash.addEventListener("click", deleteItem);
             // appendChildren
             createItem.appendChild(createcheck);
             createItem.appendChild(createItemDetails);
             createItem.appendChild(createEditButtonDiv);
             createItem.appendChild(createTrashcanDiv);
-            // itemIndex = inputs.length;
+            itemIndex = L04_Einkaufsliste_Datenstruktur.inputs.length;
         }
     }
     function addItem(_event) {
@@ -73,6 +76,7 @@ var L04_Einkaufsliste_Datenstruktur;
         let createItem = document.createElement("div");
         list.appendChild(createItem);
         createItem.classList.add("item_Nr" + itemIndex, "item");
+        createItem.setAttribute("id", String("item_Nr" + itemIndex));
         // create Input Checkbox
         let createcheck = document.createElement("input");
         createcheck.classList.add("checkbox");
@@ -105,10 +109,11 @@ var L04_Einkaufsliste_Datenstruktur;
         // create Trash
         let createTrashcanDiv = document.createElement("div");
         createTrashcanDiv.classList.add("trashcan_Nr" + itemIndex, "trashcan");
-        let createtrash = document.createElement("i");
-        createtrash.classList.add("fa-regular", "fa-trash-can", "fa-xl", "trash");
-        createTrashcanDiv.appendChild(createtrash);
-        createTrashcanDiv.addEventListener("click", deleteTask);
+        let createTrash = document.createElement("i");
+        createTrash.classList.add("fa-regular", "fa-trash-can", "fa-xl", "trash");
+        createTrash.setAttribute("id", String("trashcan" + itemIndex));
+        createTrashcanDiv.appendChild(createTrash);
+        createTrash.addEventListener("click", deleteItem);
         // appendChildren
         createItem.appendChild(createcheck);
         createItem.appendChild(createItemDetails);
@@ -119,9 +124,14 @@ var L04_Einkaufsliste_Datenstruktur;
         inputItemAmount.value = "";
         inputItemComment.value = "";
         itemIndex++;
-        function deleteTask() {
-            createItem.parentElement.removeChild(createItem);
-        }
+    }
+    function deleteItem(_event) {
+        let trigger = _event.target.id;
+        let triggerNum = trigger.replace(/\D/g, "");
+        let identifyer = parseInt(triggerNum);
+        let list = document.querySelector("#Einkaufsliste");
+        let remIt = document.getElementById("item_Nr" + identifyer);
+        list.removeChild(remIt);
     }
 })(L04_Einkaufsliste_Datenstruktur || (L04_Einkaufsliste_Datenstruktur = {}));
 //# sourceMappingURL=script.js.map
