@@ -1,4 +1,4 @@
-namespace L05_Einkaufsliste_Client {
+namespace L04_Einkaufsliste_Datenstruktur {
     export interface Item {
         product: string;
         amount: number;

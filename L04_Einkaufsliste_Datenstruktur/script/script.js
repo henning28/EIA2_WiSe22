@@ -1,12 +1,12 @@
 /*
-Aufgabe: L04_Einkaufsliste_Datenstruktur
+Aufgabe: L05_Einkaufsliste_Client
 Name: Henning Reck
 Matrikel: 271133
-Datum: 06.11.2022
-Quellen: Yannik König
+Datum: 08.11.2022
+Quellen:
 */
-var L04_Einkaufsliste_Datenstruktur;
-(function (L04_Einkaufsliste_Datenstruktur) {
+var L05_Einkaufsliste_Client;
+(function (L05_Einkaufsliste_Client) {
     window.addEventListener("load", handleLoad);
     let itemIndex = 0;
     function handleLoad() {
@@ -15,7 +15,7 @@ var L04_Einkaufsliste_Datenstruktur;
     }
     function dataItems() {
         let list = document.querySelector("#Einkaufsliste");
-        for (let dataIndex = 0; dataIndex < L04_Einkaufsliste_Datenstruktur.inputs.length; dataIndex++) {
+        for (let dataIndex = 0; dataIndex < L05_Einkaufsliste_Client.inputs.length; dataIndex++) {
             // create Item
             var createItem = document.createElement("div");
             list.appendChild(createItem);
@@ -30,13 +30,13 @@ var L04_Einkaufsliste_Datenstruktur;
             createItemDetails.classList.add("itemDetails_Nr" + dataIndex, "itemDetails");
             let createItemName = document.createElement("p");
             createItemName.classList.add("itemName");
-            createItemName.textContent = L04_Einkaufsliste_Datenstruktur.inputs[dataIndex].product;
+            createItemName.textContent = L05_Einkaufsliste_Client.inputs[dataIndex].product;
             let createItemAmount = document.createElement("p");
             createItemAmount.classList.add("itemAmount");
-            createItemAmount.textContent = L04_Einkaufsliste_Datenstruktur.inputs[dataIndex].amount.toString();
+            createItemAmount.textContent = L05_Einkaufsliste_Client.inputs[dataIndex].amount.toString();
             let createItemComment = document.createElement("p");
             createItemComment.classList.add("itemComment");
-            createItemComment.textContent = L04_Einkaufsliste_Datenstruktur.inputs[dataIndex].comment;
+            createItemComment.textContent = L05_Einkaufsliste_Client.inputs[dataIndex].comment;
             let createItemDate = document.createElement("p");
             createItemDate.classList.add("itemDate");
             createItemDate.textContent = "04.11.2022";
@@ -64,7 +64,7 @@ var L04_Einkaufsliste_Datenstruktur;
             createItem.appendChild(createItemDetails);
             createItem.appendChild(createEditButtonDiv);
             createItem.appendChild(createTrashcanDiv);
-            itemIndex = L04_Einkaufsliste_Datenstruktur.inputs.length;
+            itemIndex = L05_Einkaufsliste_Client.inputs.length;
         }
     }
     function addItem(_event) {
@@ -133,5 +133,5 @@ var L04_Einkaufsliste_Datenstruktur;
         let remIt = document.getElementById("item_Nr" + identifyer);
         list.removeChild(remIt);
     }
-})(L04_Einkaufsliste_Datenstruktur || (L04_Einkaufsliste_Datenstruktur = {}));
+})(L05_Einkaufsliste_Client || (L05_Einkaufsliste_Client = {}));
 //# sourceMappingURL=script.js.map
