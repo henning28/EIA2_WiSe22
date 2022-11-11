@@ -29,12 +29,11 @@ namespace L05_Einkaufsliste_Client {
         dataItems();
 
         document.getElementById("AddItem").addEventListener("click", addItem);
-
     }
 
     async function dataItems(): Promise<void> {
 
-        let response: Response = await fetch("https://henning28.github.io/EIA2_WiSe22/L05_Einkaufsliste_Client/Data.json");
+        let response: Response = await fetch("script/data.json");
         let offer: string = await response.text();
         let data: Item = JSON.parse(offer);
 
@@ -220,7 +219,7 @@ namespace L05_Einkaufsliste_Client {
         let formData: FormData = new FormData(form);
         let query: URLSearchParams = new URLSearchParams(<any>formData);
 
-        await fetch("../EinkaufslisteClient.html?" + query.toString());
+        await fetch("EinkaufslisteClient.html?" + query.toString());
         alert("Item added!");
 
         // alert
