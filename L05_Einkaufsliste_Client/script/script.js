@@ -144,7 +144,8 @@ var L05_Einkaufsliste_Client;
         let alertDiv = document.querySelector("#alert");
         let formData = new FormData(form);
         let query = new URLSearchParams(formData);
-        await fetch("../index.html?" + query.toString());
+        await fetch("../EinkaufslisteClient.html?" + query.toString());
+        alert("Item added!");
         // alert
         alertDiv.classList.add("alert");
         alertDiv.innerHTML = "Data sent, Item added!";

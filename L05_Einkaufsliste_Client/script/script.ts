@@ -220,9 +220,12 @@ namespace L05_Einkaufsliste_Client {
         let formData: FormData = new FormData(form);
         let query: URLSearchParams = new URLSearchParams(<any>formData);
 
-        await fetch("../index.html?" + query.toString());
+        await fetch("../EinkaufslisteClient.html?" + query.toString());
+        alert("Item added!");
 
         // alert
+
+
 
         alertDiv.classList.add("alert");
         alertDiv.innerHTML = "Data sent, Item added!";
