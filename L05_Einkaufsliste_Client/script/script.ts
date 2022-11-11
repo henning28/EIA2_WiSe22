@@ -225,8 +225,6 @@ namespace L05_Einkaufsliste_Client {
 
         // alert
 
-
-
         alertDiv.classList.add("alert");
         alertDiv.innerHTML = "Data sent, Item added!";
 
