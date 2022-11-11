@@ -1,12 +1,12 @@
 /*
-Aufgabe: L05_Einkaufsliste_Client
+Aufgabe: L04_Einkaufsliste_Datenstruktur
 Name: Henning Reck
 Matrikel: 271133
-Datum: 08.11.2022
-Quellen:
+Datum: 06.11.2022
+Quellen: Yannik König
 */
 
-namespace L05_Einkaufsliste_Client {
+namespace L04_Einkaufsliste_Datenstruktur {
 
     window.addEventListener("load", handleLoad);
 

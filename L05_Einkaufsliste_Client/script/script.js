@@ -1,21 +1,28 @@
 /*
-Aufgabe: L04_Einkaufsliste_Datenstruktur
+Aufgabe: L05_Einkaufsliste_Client
 Name: Henning Reck
 Matrikel: 271133
-Datum: 06.11.2022
-Quellen: Yannik König
+Datum: 08.11.2022
+Quellen:
 */
-var L04_Einkaufsliste_Datenstruktur;
-(function (L04_Einkaufsliste_Datenstruktur) {
-    window.addEventListener("load", handleLoad);
+var L05_Einkaufsliste_Client;
+(function (L05_Einkaufsliste_Client) {
+    let list;
     let itemIndex = 0;
+    let form;
+    window.addEventListener("load", handleLoad);
     function handleLoad() {
+        list = document.querySelector("#Einkaufsliste");
+        form = document.querySelector("form");
         dataItems();
         document.getElementById("AddItem").addEventListener("click", addItem);
     }
-    function dataItems() {
-        let list = document.querySelector("#Einkaufsliste");
-        for (let dataIndex = 0; dataIndex < L04_Einkaufsliste_Datenstruktur.inputs.length; dataIndex++) {
+    async function dataItems() {
+        let response = await fetch("https://henning28.github.io/EIA2_WiSe22/L05_Einkaufsliste_Client/Data.json");
+        let offer = await response.text();
+        let data = JSON.parse(offer);
+        let items = data["Items"];
+        for (let dataIndex = 0; dataIndex < items.length; dataIndex++) {
             // create Item
             var createItem = document.createElement("div");
             list.appendChild(createItem);
@@ -30,16 +37,16 @@ var L04_Einkaufsliste_Datenstruktur;
             createItemDetails.classList.add("itemDetails_Nr" + dataIndex, "itemDetails");
             let createItemName = document.createElement("p");
             createItemName.classList.add("itemName");
-            createItemName.textContent = L04_Einkaufsliste_Datenstruktur.inputs[dataIndex].product;
+            createItemName.textContent = items[dataIndex].product;
             let createItemAmount = document.createElement("p");
             createItemAmount.classList.add("itemAmount");
-            createItemAmount.textContent = L04_Einkaufsliste_Datenstruktur.inputs[dataIndex].amount.toString();
+            createItemAmount.textContent = items[dataIndex].amount.toString();
             let createItemComment = document.createElement("p");
             createItemComment.classList.add("itemComment");
-            createItemComment.textContent = L04_Einkaufsliste_Datenstruktur.inputs[dataIndex].comment;
+            createItemComment.textContent = items[dataIndex].comment;
             let createItemDate = document.createElement("p");
             createItemDate.classList.add("itemDate");
-            createItemDate.textContent = "04.11.2022";
+            createItemDate.textContent = items[dataIndex].purchaseDate;
             createItemDetails.appendChild(createItemName);
             createItemDetails.appendChild(createItemAmount);
             createItemDetails.appendChild(createItemComment);
@@ -64,11 +71,10 @@ var L04_Einkaufsliste_Datenstruktur;
             createItem.appendChild(createItemDetails);
             createItem.appendChild(createEditButtonDiv);
             createItem.appendChild(createTrashcanDiv);
-            itemIndex = L04_Einkaufsliste_Datenstruktur.inputs.length;
+            itemIndex = items.length;
         }
     }
     function addItem(_event) {
-        let list = document.querySelector("#Einkaufsliste");
         let inputItemName = document.getElementById("itemName");
         let inputItemAmount = document.getElementById("itemAmount");
         let inputItemComment = document.getElementById("itemComment");
@@ -124,6 +130,7 @@ var L04_Einkaufsliste_Datenstruktur;
         inputItemAmount.value = "";
         inputItemComment.value = "";
         itemIndex++;
+        sendOrder();
     }
     function deleteItem(_event) {
         let trigger = _event.target.id;
@@ -133,5 +140,18 @@ var L04_Einkaufsliste_Datenstruktur;
         let remIt = document.getElementById("item_Nr" + identifyer);
         list.removeChild(remIt);
     }
-})(L04_Einkaufsliste_Datenstruktur || (L04_Einkaufsliste_Datenstruktur = {}));
+    async function sendOrder() {
+        let alertDiv = document.querySelector("#alert");
+        let formData = new FormData(form);
+        let query = new URLSearchParams(formData);
+        await fetch("../index.html?" + query.toString());
+        // alert
+        alertDiv.classList.add("alert");
+        alertDiv.innerHTML = "Data sent, Item added!";
+        setTimeout(function () {
+            alertDiv.classList.remove("alert");
+            alertDiv.innerHTML = "";
+        }, 1200);
+    }
+})(L05_Einkaufsliste_Client || (L05_Einkaufsliste_Client = {}));
 //# sourceMappingURL=script.js.map

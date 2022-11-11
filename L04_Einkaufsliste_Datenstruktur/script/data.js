@@ -1,6 +1,6 @@
-var L05_Einkaufsliste_Client;
-(function (L05_Einkaufsliste_Client) {
-    L05_Einkaufsliste_Client.inputs = [
+var L04_Einkaufsliste_Datenstruktur;
+(function (L04_Einkaufsliste_Datenstruktur) {
+    L04_Einkaufsliste_Datenstruktur.inputs = [
         {
             product: "Carbonara",
             amount: 2,
@@ -16,5 +16,5 @@ var L05_Einkaufsliste_Client;
             purchaseDate: "02.01.2022"
         }
     ];
-})(L05_Einkaufsliste_Client || (L05_Einkaufsliste_Client = {}));
+})(L04_Einkaufsliste_Datenstruktur || (L04_Einkaufsliste_Datenstruktur = {}));
 //# sourceMappingURL=data.js.map

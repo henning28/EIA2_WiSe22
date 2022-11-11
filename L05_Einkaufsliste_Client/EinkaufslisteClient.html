@@ -8,52 +8,36 @@
     <link rel="stylesheet" href="style/style.css" type="text/css" media="screen" />
     <script src="https://kit.fontawesome.com/8716d37031.js" crossorigin="anonymous"></script>
     <script src="script/script.js"></script>
-    <script src="script/data.js"></script>
-    <title>Einkaufsliste Datenstruktur</title>
+    <title>Einkaufsliste Client</title>
 </head>
 
 <body>
+    <div id="alert"></div>
+
     <div class="headingContainer">
         <h1>Einkaufsliste</h1>
     </div>
 
-    <div class="fieldsetContainer">
-        <fieldset id="fieldset">
-            <legend id="fieldsetLegend">New Item</legend>
-            <p class="fieldsetLabels">Name</p>
-            <input id="itemName" type="text" name="Product" placeholder="type here" class="fieldsetElements" required />
+    <div class="formContainer">
+        <form id="form" method="GET">
+            <legend id="formLegend">New Item</legend>
+            <p class="formLabels">Name</p>
+            <input id="itemName" type="text" name="Product" placeholder="type here" class="formElements" required />
             <hr />
-            <p class="fieldsetLabels">Amount</p>
-            <input id="itemAmount" type="number" name="Amount" placeholder="type a number here" class="fieldsetElements" required />
+            <p class="formLabels">Amount</p>
+            <input id="itemAmount" type="number" name="Amount" placeholder="type a number here" class="formElements" required />
             <hr />
-            <p class="fieldsetLabels">Comment</p>
-            <textarea id="itemComment" name="Comment" rows="1" placeholder="type here" class="fieldsetElements"></textarea>
+            <p class="formLabels">Comment</p>
+            <textarea id="itemComment" name="Comment" rows="1" placeholder="type here" class="formElements"></textarea>
             <hr />
-            <p class="fieldsetLabels">Date</p>
-            <input type="date" name="Date" class="fieldsetElements" />
+            <p class="formLabels">Date</p>
+            <input type="date" name="Date" class="formElements" />
             <hr />
             <button id="AddItem">Add Item</button>
-        </fieldset>
+        </form>
     </div>
 
     <ul id="Einkaufsliste">
-        <!-- <li class="item">
-            <input class="checkbox" type="checkbox">
-
-            <div class="itemDetails">
-                <p class="itemName">Carbonara</p>
-                <p class="itemAmount">1x</p>
-                <p class="itemComment">Bitte die Günstigere!</p>
-                <p class="itemDate">18.08.22</p>
-            </div>
-
-            <div class="editbutton">
-                <i class="fa-solid fa-pen-to-square fa-xl edit"></i>
-            </div>
-            <div class="trashcan">
-                <i class="fa-regular fa-trash-can fa-xl trash"></i>
-            </div>
-        </li> -->
     </ul>
 </body>
 

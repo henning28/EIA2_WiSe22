@@ -1,18 +1,30 @@
 /*
-Aufgabe: L04_Einkaufsliste_Datenstruktur
+Aufgabe: L05_Einkaufsliste_Client
 Name: Henning Reck
 Matrikel: 271133
-Datum: 06.11.2022
-Quellen: Yannik König
+Datum: 08.11.2022
+Quellen:
 */
 
-namespace L04_Einkaufsliste_Datenstruktur {
+namespace L05_Einkaufsliste_Client {
+
+    interface Item {
+        product: string;
+        amount: number;
+        finished: boolean;
+        comment: string;
+        purchaseDate: string;
+    }
+
+    let list: HTMLElement;
+    let itemIndex: number = 0;
+    let form: HTMLFormElement;
 
     window.addEventListener("load", handleLoad);
 
-    let itemIndex: number = 0;
-
     function handleLoad(): void {
+        list = <HTMLElement>document.querySelector("#Einkaufsliste");
+        form = <HTMLFormElement>document.querySelector("form");
 
         dataItems();
 
@@ -20,10 +32,16 @@ namespace L04_Einkaufsliste_Datenstruktur {
 
     }
 
-    function dataItems(): void {
-        let list: HTMLElement = <HTMLElement>document.querySelector("#Einkaufsliste");
+    async function dataItems(): Promise<void> {
 
-        for (let dataIndex: number = 0; dataIndex < inputs.length; dataIndex++) {
+        let response: Response = await fetch("https://henning28.github.io/EIA2_WiSe22/L05_Einkaufsliste_Client/Data.json");
+        let offer: string = await response.text();
+        let data: Item = JSON.parse(offer);
+
+        let items: Item[] = data["Items"];
+
+        for (let dataIndex: number = 0; dataIndex < items.length; dataIndex++) {
+
             // create Item
 
             var createItem: HTMLDivElement = document.createElement("div");
@@ -44,19 +62,19 @@ namespace L04_Einkaufsliste_Datenstruktur {
 
             let createItemName: HTMLParagraphElement = document.createElement("p");
             createItemName.classList.add("itemName");
-            createItemName.textContent = inputs[dataIndex].product;
+            createItemName.textContent = items[dataIndex].product;
 
             let createItemAmount: HTMLParagraphElement = document.createElement("p");
             createItemAmount.classList.add("itemAmount");
-            createItemAmount.textContent = inputs[dataIndex].amount.toString();
+            createItemAmount.textContent = items[dataIndex].amount.toString();
 
             let createItemComment: HTMLParagraphElement = document.createElement("p");
             createItemComment.classList.add("itemComment");
-            createItemComment.textContent = inputs[dataIndex].comment;
+            createItemComment.textContent = items[dataIndex].comment;
 
             let createItemDate: HTMLParagraphElement = document.createElement("p");
             createItemDate.classList.add("itemDate");
-            createItemDate.textContent = "04.11.2022";
+            createItemDate.textContent = items[dataIndex].purchaseDate;
 
             createItemDetails.appendChild(createItemName);
             createItemDetails.appendChild(createItemAmount);
@@ -87,7 +105,6 @@ namespace L04_Einkaufsliste_Datenstruktur {
 
             createTrash.addEventListener("click", deleteItem);
 
-
             // appendChildren
 
             createItem.appendChild(createcheck);
@@ -95,13 +112,12 @@ namespace L04_Einkaufsliste_Datenstruktur {
             createItem.appendChild(createEditButtonDiv);
             createItem.appendChild(createTrashcanDiv);
 
-            itemIndex = inputs.length;
+            itemIndex = items.length;
         }
     }
 
 
     function addItem(_event: MouseEvent): void {
-        let list: HTMLElement = <HTMLElement>document.querySelector("#Einkaufsliste");
 
         let inputItemName: HTMLInputElement = document.getElementById("itemName") as HTMLInputElement;
         let inputItemAmount: HTMLInputElement = document.getElementById("itemAmount") as HTMLInputElement;
@@ -182,7 +198,9 @@ namespace L04_Einkaufsliste_Datenstruktur {
         inputItemAmount.value = "";
         inputItemComment.value = "";
 
-        itemIndex ++;
+        itemIndex++;
+
+        sendOrder();
     }
 
     function deleteItem(_event: Event): void {
@@ -193,6 +211,25 @@ namespace L04_Einkaufsliste_Datenstruktur {
         let list: HTMLElement = <HTMLElement>document.querySelector("#Einkaufsliste");
         let remIt: HTMLElement = document.getElementById("item_Nr" + identifyer);
 
-        list.removeChild(remIt);     
+        list.removeChild(remIt);
+    }
+
+    async function sendOrder(): Promise<void> {
+        let alertDiv: HTMLElement = document.querySelector("#alert");
+
+        let formData: FormData = new FormData(form);
+        let query: URLSearchParams = new URLSearchParams(<any>formData);
+
+        await fetch("../index.html?" + query.toString());
+
+        // alert
+
+        alertDiv.classList.add("alert");
+        alertDiv.innerHTML = "Data sent, Item added!";
+
+        setTimeout(function(): void {
+            alertDiv.classList.remove("alert");
+            alertDiv.innerHTML = "";
+        },         1200); 
     }
 }
