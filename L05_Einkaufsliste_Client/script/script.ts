@@ -3,7 +3,7 @@ Aufgabe: L05_Einkaufsliste_Client
 Name: Henning Reck
 Matrikel: 271133
 Datum: 08.11.2022
-Quellen:
+Quellen: EIA Videos
 */
 
 namespace L05_Einkaufsliste_Client {
