@@ -18,7 +18,7 @@ var L05_Einkaufsliste_Client;
         document.getElementById("AddItem").addEventListener("click", addItem);
     }
     async function dataItems() {
-        let response = await fetch("https://henning28.github.io/EIA2_WiSe22/L05_Einkaufsliste_Client/script/data.json");
+        let response = await fetch("script/data.json");
         let offer = await response.text();
         let data = JSON.parse(offer);
         let items = data["Items"];

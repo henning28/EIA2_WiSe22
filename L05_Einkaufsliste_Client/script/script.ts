@@ -33,7 +33,7 @@ namespace L05_Einkaufsliste_Client {
 
     async function dataItems(): Promise<void> {
 
-        let response: Response = await fetch("https://henning28.github.io/EIA2_WiSe22/L05_Einkaufsliste_Client/script/data.json");
+        let response: Response = await fetch("script/data.json");
         let offer: string = await response.text();
         let data: Item = JSON.parse(offer);
 
