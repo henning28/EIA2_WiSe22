@@ -2,7 +2,7 @@
 Aufgabe: L05_Einkaufsliste_Client
 Name: Henning Reck
 Matrikel: 271133
-Datum: 08.11.2022
+Datum: 12.11.2022
 Quellen: EIA Videos
 */
 
@@ -116,7 +116,7 @@ namespace L05_Einkaufsliste_Client {
     }
 
 
-    function addItem(_event: MouseEvent): void {
+    function addItem(): void {
 
         let inputItemName: HTMLInputElement = document.getElementById("itemName") as HTMLInputElement;
         let inputItemAmount: HTMLInputElement = document.getElementById("itemAmount") as HTMLInputElement;
@@ -208,9 +208,9 @@ namespace L05_Einkaufsliste_Client {
         let identifyer: number = parseInt(triggerNum);
 
         let list: HTMLElement = <HTMLElement>document.querySelector("#Einkaufsliste");
-        let remIt: HTMLElement = document.getElementById("item_Nr" + identifyer);
+        let removeItem: HTMLElement = document.getElementById("item_Nr" + identifyer);
 
-        list.removeChild(remIt);
+        list.removeChild(removeItem);
     }
 
     async function sendOrder(): Promise<void> {

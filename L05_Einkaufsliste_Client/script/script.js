@@ -2,8 +2,8 @@
 Aufgabe: L05_Einkaufsliste_Client
 Name: Henning Reck
 Matrikel: 271133
-Datum: 08.11.2022
-Quellen:
+Datum: 12.11.2022
+Quellen: EIA Videos
 */
 var L05_Einkaufsliste_Client;
 (function (L05_Einkaufsliste_Client) {
@@ -74,7 +74,7 @@ var L05_Einkaufsliste_Client;
             itemIndex = items.length;
         }
     }
-    function addItem(_event) {
+    function addItem() {
         let inputItemName = document.getElementById("itemName");
         let inputItemAmount = document.getElementById("itemAmount");
         let inputItemComment = document.getElementById("itemComment");
@@ -137,8 +137,8 @@ var L05_Einkaufsliste_Client;
         let triggerNum = trigger.replace(/\D/g, "");
         let identifyer = parseInt(triggerNum);
         let list = document.querySelector("#Einkaufsliste");
-        let remIt = document.getElementById("item_Nr" + identifyer);
-        list.removeChild(remIt);
+        let removeItem = document.getElementById("item_Nr" + identifyer);
+        list.removeChild(removeItem);
     }
     async function sendOrder() {
         let alertDiv = document.querySelector("#alert");
