@@ -125,12 +125,13 @@ var L05_Einkaufsliste_Client;
         createItem.appendChild(createItemDetails);
         createItem.appendChild(createEditButtonDiv);
         createItem.appendChild(createTrashcanDiv);
+        // send Order
+        sendOrder();
         // clear Inputs
         inputItemName.value = "";
         inputItemAmount.value = "";
         inputItemComment.value = "";
         itemIndex++;
-        sendOrder();
     }
     function deleteItem(_event) {
         let trigger = _event.target.id;

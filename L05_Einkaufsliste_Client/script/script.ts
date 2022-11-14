@@ -191,6 +191,10 @@ namespace L05_Einkaufsliste_Client {
         createItem.appendChild(createEditButtonDiv);
         createItem.appendChild(createTrashcanDiv);
 
+        // send Order
+
+        sendOrder();
+        
         // clear Inputs
 
         inputItemName.value = "";
@@ -198,8 +202,6 @@ namespace L05_Einkaufsliste_Client {
         inputItemComment.value = "";
 
         itemIndex++;
-
-        sendOrder();
     }
 
     function deleteItem(_event: Event): void {
