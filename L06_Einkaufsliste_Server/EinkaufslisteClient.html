@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style/style.css" type="text/css" media="screen" />
+    <script src="https://kit.fontawesome.com/8716d37031.js" crossorigin="anonymous"></script>
+    <script src="script/script.js"></script>
+    <title>Einkaufsliste Client</title>
+</head>
+
+<body>
+    <div id="alert"></div>
+
+    <div class="headingContainer">
+        <h1>Einkaufsliste</h1>
+    </div>
+
+    <div class="formContainer">
+        <form id="form" method="GET">
+            <legend id="formLegend">New Item</legend>
+            <p class="formLabels">Name</p>
+            <input id="itemName" type="text" name="Product" placeholder="type here" class="formElements" required />
+            <hr />
+            <p class="formLabels">Amount</p>
+            <input id="itemAmount" type="number" name="Amount" placeholder="type a number here" class="formElements" required />
+            <hr />
+            <p class="formLabels">Comment</p>
+            <textarea id="itemComment" name="Comment" rows="1" placeholder="type here" class="formElements"></textarea>
+            <hr />
+            <p class="formLabels">Date</p>
+            <input type="date" name="Date" class="formElements" />
+            <hr />
+            <button id="AddItem">Add Item</button>
+        </form>
+    </div>
+
+    <ul id="Einkaufsliste">
+    </ul>
+</body>
+
+</html>
