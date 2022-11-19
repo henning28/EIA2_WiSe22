@@ -2,8 +2,8 @@
 Aufgabe: L06_Einkaufsliste_Server
 Name: Henning Reck
 Matrikel: 271133
-Datum: 15.11.2022
-Quellen:
+Datum: 19.11.2022
+Quellen: Natan Haider
 */
 
 namespace L06_Einkaufsliste_Server {
@@ -33,11 +33,11 @@ namespace L06_Einkaufsliste_Server {
 
     async function dataItems(): Promise<void> {
 
-        let response: Response = await fetch("https://webuser.hs-furtwangen.de/~reckhenn/database/");
+        let response: Response = await fetch("https://webuser.hs-furtwangen.de/~reckhenn/database/index.php/?command=find&collection=Items");
         let offer: string = await response.text();
-        let data: Item = JSON.parse(offer);
+        let data: Text = JSON.parse(offer);
 
-        let items: Item[] = data["Items"];
+        let items: Item[] = data.data["Items"];
 
         for (let dataIndex: number = 0; dataIndex < items.length; dataIndex++) {
 
@@ -114,7 +114,6 @@ namespace L06_Einkaufsliste_Server {
             itemIndex = items.length;
         }
     }
-
 
     function addItem(): void {
 
