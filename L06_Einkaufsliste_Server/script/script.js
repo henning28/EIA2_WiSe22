@@ -2,7 +2,7 @@
 Aufgabe: L06_Einkaufsliste_Server
 Name: Henning Reck
 Matrikel: 271133
-Datum: 15.11.2022
+Datum: 19.11.2022
 Quellen:
 */
 var L06_Einkaufsliste_Server;
@@ -18,10 +18,10 @@ var L06_Einkaufsliste_Server;
         document.getElementById("AddItem").addEventListener("click", addItem);
     }
     async function dataItems() {
-        let response = await fetch("https://webuser.hs-furtwangen.de/~reckhenn/database/");
+        let response = await fetch("https://webuser.hs-furtwangen.de/~reckhenn/database/index.php/?command=find&collection=Items");
         let offer = await response.text();
         let data = JSON.parse(offer);
-        let items = data["Items"];
+        let items = data.data["Items"];
         for (let dataIndex = 0; dataIndex < items.length; dataIndex++) {
             // create Item
             var createItem = document.createElement("div");
@@ -144,9 +144,16 @@ var L06_Einkaufsliste_Server;
     async function sendOrder() {
         let alertDiv = document.querySelector("#alert");
         let formData = new FormData(form);
-        let query = new URLSearchParams(formData);
-        await fetch("EinkaufslisteClient.html?" + query.toString());
-        alert("Item added!");
+        let json = {};
+        for (let key of formData.keys())
+            if (!json[key]) {
+                let values = formData.getAll(key);
+                json[key] = values.length > 1 ? values : values[0];
+            }
+        let query = new URLSearchParams();
+        query.set("command", "insert");
+        query.set("collection", "Items");
+        query.set("data", JSON.stringify(json));
         // alert
         alertDiv.classList.add("alert");
         alertDiv.innerHTML = "Data sent, Item added!";

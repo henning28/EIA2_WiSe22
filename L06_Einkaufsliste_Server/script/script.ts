@@ -3,7 +3,7 @@ Aufgabe: L06_Einkaufsliste_Server
 Name: Henning Reck
 Matrikel: 271133
 Datum: 19.11.2022
-Quellen: Natan Haider
+Quellen:
 */
 
 namespace L06_Einkaufsliste_Server {
