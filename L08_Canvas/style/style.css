@@ -1,0 +1,10 @@
+* {
+    margin: 0;
+}
+
+div {
+    margin: 50px;
+    height: 625px;
+    width: 1500px;
+    box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.5);
+}
