@@ -40,14 +40,14 @@ namespace L08_Canvas {
         let snowflakeAmount: number = 100;
         let snowflakeRadius: number = 20;
         let snowflake: Path2D = new Path2D();
-        let gradien1t: CanvasGradient = crc2.createRadialGradient(0, 0, 0, 0, 0, snowflakeRadius);
+        let gradient: CanvasGradient = crc2.createRadialGradient(0, 0, 0, 0, 0, snowflakeRadius);
 
         snowflake.arc(0, 0, snowflakeRadius, 0, 2 * Math.PI);
-        gradien1t.addColorStop(0, "hsla(0, 100%, 100%, 1)");
-        gradien1t.addColorStop(1, "hsla(0, 100%, 100%, 0)");
+        gradient.addColorStop(0, "hsla(0, 100%, 100%, 1)");
+        gradient.addColorStop(1, "hsla(0, 100%, 100%, 0)");
 
         crc2.translate(320, 200);
-        crc2.fillStyle = gradien1t;
+        crc2.fillStyle = gradient;
 
         for (let drawn: number = 0; drawn < snowflakeAmount; drawn++) {
             crc2.save();
@@ -396,7 +396,7 @@ namespace L08_Canvas {
     }
 
     function drawCloud(): void {
-        let particelAmount: number = 20;
+        let particleAmount: number = 20;
         let particleRadius: number = 50;
         let particle: Path2D = new Path2D();
         let gradient: CanvasGradient = crc2.createRadialGradient(0, 0, 0, 0, 0, particleRadius);
@@ -409,7 +409,7 @@ namespace L08_Canvas {
         crc2.translate(500, 150);
         crc2.fillStyle = gradient;
 
-        for (let drawn: number = 0; drawn < particelAmount; drawn++) {
+        for (let drawn: number = 0; drawn < particleAmount; drawn++) {
             crc2.save();
             let x: number = (Math.random() - 0.5) * 300;
             let y: number = - (Math.random() * 75);
