@@ -1,0 +1,40 @@
+* {
+    margin: 0;
+    font-size: 20px;
+}
+
+#date {
+    display: flex;
+    align-items: center;
+    margin: 15px auto 0px auto;
+    padding: 10px;
+    height: 50px;
+    width: 300px;
+
+    border: 4px solid black;
+    border-radius: 20px;
+}
+
+#food {
+    display: flex;
+
+    margin: 15px auto 0px auto;    
+    padding: 10px;
+    width: 300px;
+
+    border: 4px solid black;
+    border-radius: 20px;
+}
+
+#song {
+    margin: 15px auto 0px auto;
+    padding: 10px;
+    width: 300px;
+
+    border: 4px solid black;
+    border-radius: 20px;
+}
+
+#dateDiv, #foodDiv, #songDiv {
+    margin: 0 auto;
+}
