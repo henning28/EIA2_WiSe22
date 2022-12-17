@@ -24,28 +24,28 @@ var L08_Canvas;
         drawStandingBirds();
         drawBirds();
         drawSnowman();
-        drawSnowflakes();
+        // drawSnowflakes();
     }
-    function drawSnowflakes() {
-        let snowflakeAmount = 100;
-        let snowflakeRadius = 20;
-        let snowflake = new Path2D();
-        let gradient = crc2.createRadialGradient(0, 0, 0, 0, 0, snowflakeRadius);
-        snowflake.arc(0, 0, snowflakeRadius, 0, 2 * Math.PI);
-        gradient.addColorStop(0, "hsla(0, 100%, 100%, 1)");
-        gradient.addColorStop(1, "hsla(0, 100%, 100%, 0)");
-        crc2.translate(320, 200);
-        crc2.fillStyle = gradient;
-        for (let drawn = 0; drawn < snowflakeAmount; drawn++) {
-            crc2.save();
-            let x = (Math.random() - 0.5) * 1000;
-            let y = -(Math.random() * 625);
-            crc2.translate(x, y);
-            crc2.fill(snowflake);
-            crc2.restore();
-        }
-        crc2.restore();
-    }
+    // function drawSnowflakes(): void {
+    //     let snowflakeAmount: number = 100;
+    //     let snowflakeRadius: number = 20;
+    //     let snowflake: Path2D = new Path2D();
+    //     let gradient: CanvasGradient = crc2.createRadialGradient(0, 0, 0, 0, 0, snowflakeRadius);
+    //     snowflake.arc(0, 0, snowflakeRadius, 0, 2 * Math.PI);
+    //     gradient.addColorStop(0, "hsla(0, 100%, 100%, 1)");
+    //     gradient.addColorStop(1, "hsla(0, 100%, 100%, 0)");
+    //     crc2.translate(320, 200);
+    //     crc2.fillStyle = gradient;
+    //     for (let drawn: number = 0; drawn < snowflakeAmount; drawn++) {
+    //         crc2.save();
+    //         let x: number = (Math.random() - 0.5) * 1000;
+    //         let y: number = - (Math.random() * 625);
+    //         crc2.translate(x, y);
+    //         crc2.fill(snowflake);
+    //         crc2.restore();
+    //     }
+    //     crc2.restore();
+    // }
     function drawTrees() {
         let particleAmount = 10;
         let particle = new Path2D();

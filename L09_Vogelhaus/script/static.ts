@@ -1,28 +1,7 @@
-/*
-Aufgabe: L08_Vogelhaus
-Name: Henning Reck
-Matrikel: 271133
-Datum: 03.12.2022
-Quellen: Berge inspiriert bei Natan Haider
-*/
+namespace L09_Vogelhaus {
+    export let birdColors: string[] = ["hsl(269, 100%, 50%)", "hsl(336, 100%, 50%)", "hsl(19, 100%, 50%)"];
 
-namespace L08_Canvas {
-
-    window.addEventListener("load", handleLoad);
-
-    interface Vector {
-        [key: string]: number;
-    }
-
-    let birdColors: string[] = ["hsl(269, 100%, 50%)", "hsl(336, 100%, 50%)", "hsl(19, 100%, 50%)"];
-
-    let canvas: HTMLCanvasElement = document.querySelector("canvas");
-    let crc2: CanvasRenderingContext2D = canvas.getContext("2d");
-
-    function handleLoad(_event: Event): void {
-        canvas.width = 1000;
-        canvas.height = 625;
-
+    export function drawStatic(): void {
         drawBackground();
         drawMountains();
         drawSun();
@@ -31,41 +10,15 @@ namespace L08_Canvas {
         drawBirdHouse();
         drawSittingBirds();
         drawStandingBirds();
-        drawBirds();
         drawSnowman();
-        // drawSnowflakes();
     }
-
-    // function drawSnowflakes(): void {
-    //     let snowflakeAmount: number = 100;
-    //     let snowflakeRadius: number = 20;
-    //     let snowflake: Path2D = new Path2D();
-    //     let gradient: CanvasGradient = crc2.createRadialGradient(0, 0, 0, 0, 0, snowflakeRadius);
-
-    //     snowflake.arc(0, 0, snowflakeRadius, 0, 2 * Math.PI);
-    //     gradient.addColorStop(0, "hsla(0, 100%, 100%, 1)");
-    //     gradient.addColorStop(1, "hsla(0, 100%, 100%, 0)");
-
-    //     crc2.translate(320, 200);
-    //     crc2.fillStyle = gradient;
-
-    //     for (let drawn: number = 0; drawn < snowflakeAmount; drawn++) {
-    //         crc2.save();
-    //         let x: number = (Math.random() - 0.5) * 1000;
-    //         let y: number = - (Math.random() * 625);
-    //         crc2.translate(x, y);
-    //         crc2.fill(snowflake);
-    //         crc2.restore();
-    //     }
-    //     crc2.restore();
-    // }
 
     function drawTrees(): void {
         let particleAmount: number = 10;
         let particle: Path2D = new Path2D();
 
-        let particleSize: Vector = { x: 500, y: 100 };
-        let leafSize: Vector = { x: 40, y: 100 };
+        let particleSize: smallVector = { x: 500, y: 100 };
+        let leafSize: smallVector = { x: 40, y: 100 };
         particle.rect(0, 0, 20, 200);
 
         crc2.save();
@@ -111,8 +64,9 @@ namespace L08_Canvas {
     }
 
     function drawSnowman(): void {
+        crc2.save();
 
-        crc2.translate(-50, 0);
+        crc2.translate(170, 400);
         crc2.translate(randomNumber(0, 50), 0);
         crc2.strokeStyle = "hsla(34, 64%, 14%, 1)";
 
@@ -127,8 +81,6 @@ namespace L08_Canvas {
         crc2.lineTo(140, 50);
         crc2.lineWidth = 7;
         crc2.stroke();
-
-        crc2.restore();
 
         crc2.strokeStyle = "hsla(0, 100%, 0%, 1)";
         crc2.fillStyle = "hsla(0, 100%, 100%, 1)";
@@ -148,8 +100,6 @@ namespace L08_Canvas {
         crc2.arc(50, -50, 40, 0, 2 * Math.PI, false);
         crc2.fill();
         crc2.stroke();
-
-        crc2.restore();
 
         crc2.fillStyle = "hsla(0, 100%, 0%, 1)";
         crc2.beginPath();
@@ -219,7 +169,7 @@ namespace L08_Canvas {
         crc2.save();
 
         let birdAmount: number = 6;
-        let birdSize: Vector = { x: 300, y: 50 };
+        let birdSize: smallVector = { x: 300, y: 50 };
 
         let birdDirection: number[] = [1, -1];
 
@@ -286,7 +236,7 @@ namespace L08_Canvas {
         crc2.save();
 
         let birdAmount: number = 4;
-        let birdSize: Vector = { x: 280, y: 0 };
+        let birdSize: smallVector = { x: 280, y: 0 };
 
         let birdDirection: number[] = [1, -1];
 
@@ -387,7 +337,7 @@ namespace L08_Canvas {
         crc2.fillStyle = gradient;
         crc2.fillRect(0, 0, crc2.canvas.width, crc2.canvas.height);
 
-        crc2.restore();
+        crc2.save();
 
         crc2.fillStyle = "hsla(202, 100%, 82%, 1)";
         crc2.fillRect(0, 360, crc2.canvas.width, 300);
@@ -418,73 +368,5 @@ namespace L08_Canvas {
             crc2.restore();
         }
         crc2.restore();
-    }
-
-    function drawBirds(): void {
-        let birdAmount: number = 10;
-        let birdSize: Vector = { x: 350, y: 300 };
-
-        let birdDirection: number[] = [1, -1];
-
-        crc2.translate(200, 400);
-
-        for (let amount: number = 0; amount < birdAmount; amount++) {
-            crc2.save();
-            let x: number = (Math.random() - 0.5) * birdSize.x;
-            let y: number = - (Math.random() * birdSize.y);
-            let randomScale: number = (Math.random() * .6) + 0.2;
-            crc2.translate(x, y);
-
-            crc2.scale(randomScale, randomScale);
-            crc2.scale(birdDirection[Math.floor(Math.random() * (3) - 1)], 1);
-
-            // Körper
-            crc2.beginPath();
-            crc2.rotate((Math.PI / 180) * 30);
-            crc2.arc(8, 12, 50, 0, 1 * Math.PI, false);
-            crc2.fillStyle = birdColors[randomNumber(0, 3)];
-            crc2.lineWidth = 5;
-            crc2.strokeStyle = "hsla(0, 100%, 0%, 1)";
-            crc2.fill();
-            crc2.stroke();
-
-            // Schnabel
-            crc2.beginPath();
-            crc2.moveTo(-60, 25);
-            crc2.lineTo(-80, 15);
-            crc2.lineTo(-60, -5);
-            crc2.fillStyle = "hsla(48, 100%, 50%, 1)";
-            crc2.fill();
-
-            crc2.closePath();
-
-            // Kopf
-            crc2.beginPath();
-            crc2.arc(0 - 40, 0 + 8, 23, 0, 2 * Math.PI, false);
-            crc2.fillStyle = birdColors[randomNumber(0, 3)];
-            crc2.fill();
-            crc2.stroke();
-
-            // Bein links
-            crc2.beginPath();
-            crc2.moveTo(15, 60);
-            crc2.lineTo(40, 100);
-            crc2.lineWidth = 5;
-            crc2.stroke();
-
-            // Bein rechts
-            crc2.beginPath();
-            crc2.moveTo(30, 60);
-            crc2.lineTo(55, 95);
-            crc2.lineWidth = 5;
-            crc2.stroke();
-
-            crc2.restore();
-        }
-        crc2.restore();
-    }
-
-    function randomNumber(_min: number, _max: number): number {
-        return Math.floor(Math.random() * _max) + _min;
     }
 }
