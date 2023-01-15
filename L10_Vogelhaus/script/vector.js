@@ -1,62 +1,56 @@
-namespace L09_Vogelhaus {
-
-    export interface SmallVector {
-        [key: string]: number;
-    }
-
-    export class Vector {
-        x: number;
-        y: number;
-
-        constructor(_x: number, _y: number) {
+var L10_Vogelhaus;
+(function (L10_Vogelhaus) {
+    class Vector {
+        x;
+        y;
+        constructor(_x, _y) {
             this.x = _x;
             this.y = _y;
         }
-
-        set(_x: number, _y: number): void {
+        set(_x, _y) {
             this.x = _x;
             this.y = _y;
         }
-
-        scale(_factor: number): void {
+        scale(_factor) {
             this.x *= _factor;
             this.y *= _factor;
         }
-
-        add(_addend: Vector): void {
+        add(_addend) {
             this.x += _addend.x;
             this.y += _addend.y;
         }
-
-        random(_minLength: number, _maxLength: number, _directions?: string): void {
-            let length: number = _minLength + Math.random() * (_maxLength - _minLength);
-
-
+        random(_minLength, _maxLength, _directions) {
+            let length = _minLength + Math.random() * (_maxLength - _minLength);
             if (_directions == "y") {
-                let direction: number = 0.5 * Math.PI;
+                let direction = 0.5 * Math.PI;
                 this.set(Math.cos(direction), Math.sin(direction));
                 this.scale(length);
             }
             else if (_directions == "-y") {
-                let direction: number = -0.5 * Math.PI;
+                let direction = -0.5 * Math.PI;
                 this.set(Math.cos(direction), Math.sin(direction));
                 this.scale(length);
             }
             else if (_directions == "x") {
-                let direction: number = 1 * Math.PI;
+                let direction = 1 * Math.PI;
                 this.set(Math.cos(direction), Math.sin(direction));
                 this.scale(length);
             }
             else if (_directions == "-x") {
-                let direction: number = -2 * Math.PI;
+                let direction = -2 * Math.PI;
                 this.set(Math.cos(direction), Math.sin(direction));
                 this.scale(length);
             }
             else {
-                let direction: number = Math.random() * 2 * Math.PI;
+                let direction = Math.random() * 2 * Math.PI;
                 this.set(Math.cos(direction), Math.sin(direction));
                 this.scale(length);
             }
         }
+        copy() {
+            return new Vector(this.x, this.y);
+        }
     }
-}
+    L10_Vogelhaus.Vector = Vector;
+})(L10_Vogelhaus || (L10_Vogelhaus = {}));
+//# sourceMappingURL=vector.js.map

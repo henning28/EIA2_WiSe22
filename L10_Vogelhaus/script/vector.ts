@@ -1,4 +1,4 @@
-namespace L09_Vogelhaus {
+namespace L10_Vogelhaus {
 
     export interface SmallVector {
         [key: string]: number;
@@ -57,6 +57,9 @@ namespace L09_Vogelhaus {
                 this.set(Math.cos(direction), Math.sin(direction));
                 this.scale(length);
             }
+        }
+        copy(): Vector {
+            return new Vector(this.x, this.y);
         }
     }
 }

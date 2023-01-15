@@ -1,12 +1,10 @@
-namespace L09_Vogelhaus {
-    
-    export class FlyingBirds {
-        position: Vector;
-        velocity: Vector;
+namespace L10_Vogelhaus {
+    export class FlyingBirds extends Moveable {
+
         scale: Vector;
 
         constructor(_position: Vector) {
-            this.position = _position;
+            super(_position);
             this.velocity = new Vector(0, 0);
             this.velocity.random(50, 200, directions[Math.floor(Math.random() * directions.length)]);
 
@@ -15,6 +13,8 @@ namespace L09_Vogelhaus {
         }
 
         draw(): void {
+            let start: DOMMatrix = crc2.getTransform();
+
             crc2.save();
             crc2.translate(this.position.x, this.position.y);
             crc2.scale(this.scale.x, this.scale.y);
@@ -36,6 +36,7 @@ namespace L09_Vogelhaus {
             crc2.stroke();
 
             crc2.restore();
+            crc2.setTransform(start);
         }
 
         fly(_timeslice: number): void {

@@ -1,4 +1,4 @@
-namespace L09_Vogelhaus {
+namespace L10_Vogelhaus {
     export let birdColors: string[] = ["hsl(269, 100%, 50%)", "hsl(336, 100%, 50%)", "hsl(19, 100%, 50%)"];
 
     export function drawStatic(): void {

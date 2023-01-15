@@ -31,7 +31,6 @@ namespace L09_Vogelhaus {
             }
         }
 
-
         draw(): void {
             crc2.save();
             crc2.translate(this.position.x, this.position.y);
