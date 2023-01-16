@@ -13,7 +13,7 @@ namespace L10_Vogelhaus {
     export let crc2: CanvasRenderingContext2D;
     export let imageData: ImageData;
     export let directions: string[] = ["x", "-x"];
-    let xStep: number = 0; 
+    let xStep: number = 0;
 
     let moveables: Moveable[] = [];
 
@@ -74,7 +74,7 @@ namespace L10_Vogelhaus {
         for (let moveable of moveables) {
             if (moveable instanceof Snowflake) {
                 moveable.move(1 / 50);
-        }
+            }
             if (moveable instanceof FlyingBirds) {
                 moveable.fly(1 / 50);
                 moveable.draw();
